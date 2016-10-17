@@ -1,0 +1,12 @@
+<div ng-controller="infiniteScrollController as users">
+    <div infinite-scroll="getMoreData()">
+        <div ng-repeat="user in users" class="userContainer">
+            <h4>{{user.first_name}} {{user.last_name}}</h4>
+            <p>
+                <b>Email:</b> {{user.email}}  -   
+                <b>Country:</b> {{user.country}}  -  
+                <b>IP:</b> {{user.ip_address}} 
+            </p>
+        </div>
+    </div>
+</div>

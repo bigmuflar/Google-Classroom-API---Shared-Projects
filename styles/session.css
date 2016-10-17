@@ -1,147 +1,140 @@
-.content {
-	width: 35%;
-	position: relative;
-	z-index: 5;
-	display: inline-block;
-	margin: auto;
-    top: 100px;
+.session {
+	background:#5d5d5d
 }
-
-/* TOP FORM STYLES*/
-.abcRioButton.abcRioButtonBlue {
-    margin: auto;
-    margin-bottom: 35px;
+.session,.session__background {
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0
 }
-#form-content {
-    position: absolute;
-    z-index: 1;
+.session__background {
+	background-color:#110a03;
+	background-image:url(/images/login_background.png);
+	background-position:50%;
+	background-repeat:no-repeat;
+	opacity:.8;
+	z-index:1
 }
-#top-form{
-    position: fixed;
-    z-index: 1;
-    left: 36%;
-    top: 25%;
-    width: 300px;
+.session__container {
+	background:url(/images/signup_background.png);
+	width:70vw;
+	height:75vh;
+	margin:4em auto 1em;
+	z-index:1;
+	text-align:center
 }
-.control-label {
-    color: white;
-    font-style: 'Roboto', sans-serif;
+.session__header {
+	padding-top:.2em;
+	font-size:1.4em;
+	color:#fff;
+	text-shadow:0 2px 4px rgba(0,0,0,.5);
+	text-align:center
 }
-
-
-
-/* OVERLAY VIDEO */
-#backcolor {
-    position: absolute;
+.session__header h1 img {
+	width: 150px;
 }
-
-#overlay{
-    background: rgba(0,0,0,0.6);
-    height: auto;
-    position: relative;
+.session__login img {
+	width: 150px;
 }
-
-video {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
+.session__header h2 {
+	font-size:1.6em;
+	margin-bottom:0;
+	font-weight:500
 }
-
-#image-block{
-    margin-top: -20px;
+.session__header h3 {
+	margin-top:.3em;
+	font-size:.9em;
+	font-weight:200;
+	margin-bottom:2em
 }
-
-#top h2 {
-	margin-top: 0.5em;
-	font-size: 1.15em;
-}
-#top img:first-child{
-    width: 300px;
-    padding-bottom: 5px;
-    margin: auto;
-    position: fixed;
-    padding-top: 10px;
-}
-#top img:nth-child(2){
-    width:75px;
-    margin: auto;
-}
-#top{
-	z-index: 5;
-	position: fixed;
-	width: 100%;
-	margin-bottom: 30px;
-    text-align: center;
-}
-#menu {
-    font-size: 30px;
-    float: right;
-    padding-right: 50px;
-    margin-top: 10px;
-}
-.menu-item{
-	z-index: -1;
-    padding-left: 20px;
-}
-#vid-overlay{
-	z-index: -1;
-	background-color: rgba(75, 92, 126, 0.7);
-	position: fixed;
+.session__sign_up {
 	display:inline-block;
-	height: 85px;
+	width:25%;
+	text-align:center;
+	color:#fff;
+	min-width:350px
+}
+.session .sellbar {
+	text-align:center
+}
+.session .sellbar img {
+	width:300px
+}
+.session__login {
+	position:relative;
+	z-index:9;
+	width:25%;
+	margin:7em auto 0;
+	text-align:center;
+	min-width:350px;
+	color:#fff
+}
+.session__login__or {
+	font-size:1.5em;
+	margin:.3em
+}
+.session__login__or span {
+	display:inline-block;
+	width:10%
+}
+.session__login__or:after,.session__login__or:before {
+	content:'';
+	border-top:1px solid #fff;
+	width:43%;
+	height:10px;
+	display:inline-block;
+	position:relative;
+	top:4px
+}
+.session__login__or:before {
+	right:6px
+}
+.session__login__or:after {
+	left:4px
+}
+.session__reset {
+	width:50vw;
+	max-width:350px;
+	margin:3em auto;
+	text-align:center
+}
+.session__reset h1 {
+	color:#fff
+}
+.session__reset input {
+	margin-bottom:1em
+}
+.session h1 {
+	text-shadow:0 2px 4px rgba(0,0,0,.5)
+}
+.session input {
+	border-radius:5px;
+	border:none;
+	font-size:1.1em;
+	padding:.4em .7em;
 	width:100%;
+	outline:none
 }
-
-/*SOCIAL MEDIA SPRITES*/
-#social{
-    position: relative;
-    padding-left: 50px;
-    padding-top: 20px;
+.session input.ng-dirty.ng-invalid {
+	border:1px solid #f24033
 }
-
-#social-sprites ul{
-  list-style-type: none;
+.session__field input {
+	border:1px solid #fff;
+	box-sizing:border-box;
+	margin-bottom:.5em
 }
-
-#social-sprites{
-    position: relative;
-    height: 20px;
-    display: block;
-    clear: both;
-    padding-left: 0px;
+.session__actions input {
+	background:#83c8fe;
+	color:#fff;
+	cursor:pointer;
+	margin-top:.8em
 }
-#social-sprites li{
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    width: 45px;
-    height: 45px;
-    top: 0;
-    list-style: none;
+.session__links a,.session__tos,.session__tos a {
+	color:#9b9b9b;
+	text-shadow:0 1px 2px rgba(0,0,0,.5)
 }
-#facebook{
-    left: 0px;
-    background: url('../images/Social_Sprites.png') 0 0;
-}
-#facebook:hover{
-    left: 0px;
-    background: url('../images/Social_Sprites.png') 0 45px;
-}
-#twitter{
-    left: 50px;
-    background: url('../images/Social_Sprites.png') -45px 0;
-}
-#twitter:hover{
-    left: 50px;
-    background: url('../images/Social_Sprites.png') -45px 45px;
-}
-#linkedin{
-    left: 100px;
-    background: url('../images/Social_Sprites.png') -90px 0;
-}
-#linkedin:hover{
-    left: 100px;
-    background: url('../images/Social_Sprites.png') -90px 45px;
+.session__tos {
+	font-size:.6em;
+	line-height:130%
 }

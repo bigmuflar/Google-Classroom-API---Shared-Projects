@@ -1,0 +1,12 @@
+.userContainer{
+    width: 300px;
+    height: 110px;
+    padding: 25px;
+    font-family: roboto;
+    margin: 7px;
+    box-shadow: 1px 1px 1px 1px;
+    float: left;
+}
+.userContainer p{
+    font-size: 12px;
+}

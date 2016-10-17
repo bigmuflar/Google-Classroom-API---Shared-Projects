@@ -9,7 +9,7 @@ myRouter.$inject = ['$routeProvider'];
 function myRouter($routeProvider){
     console.log('route is working!');
     $routeProvider
-        .when('/app', {
+        .when('/', {
             templateUrl: '/templates/app.html'
         })
         .otherwise({

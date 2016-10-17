@@ -1,4 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(session.css);
+@import url(buttons.css);
+@import url(app_content.css);
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -50,14 +53,13 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-	line-height: 1;
+    font-family: 'Roboto',Helvetica,Arial,sans-serif;
 	position:relative;
 }
 h1{
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
+    padding-bottom: 25px;
 }
 h3{
 	font-size:140%;
