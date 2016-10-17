@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Lesson Lace</title>
+        
+        <!-- Meta-Data Cards -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="description" content="Collaborate on international projects in Google Classroom." />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="http://lessonlace.com/images/social.png">
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="International Student Collaboration" />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="http://www.lessonlace.com/" />
+        <meta property="og:image" content="images/social.png" />
+        <meta property="og:description" content="Collaborate on international projects in Google Classroom." />
+
+        <!-- JS Links-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+        <script type="text/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/api:client.js"></script>
+        <script type="text/javascript" src="secondary.js"></script>
+        
+        <!--Style Links-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="images/logo.ico" />
+<!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="styles/base.css" type="text/css" />
+        <link rel="stylesheet" href="styles/session.css" type="text/css" />
+        
+-->
+        <!--Google Client ID-->
+<!--
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="553892757728-cev6cf803s6efjl7rgfsnp5tsrknuram.apps.googleusercontent.com">
+-->
+
+        
+        <!--Setup Bootstrap port-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    
+    </head>
+    <body ng-app="lessonlace">
+        <div ng-controller="MainController as mCtrl">
+            <nav class='menu'>
+                <ul>
+                    <li>
+                        <a href="#/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#/red">red</a>
+                    </li>
+                    <li>
+                        <a href="#/blue">blue</a>
+                    </li>
+                    <li>
+                        <a href="#/green">green</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+            
+        <ng-view>
+            
+        </ng-view>
+        </div>
+    </body>
+</html>
