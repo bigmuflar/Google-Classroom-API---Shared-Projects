@@ -1,15 +1,16 @@
-<div ng-controller="Signup" class="session">
-    <div class="session__container">
+<div class="session" id="authorize-div" ng-controller="authenticate as aCtrl" >
+    <div class="session__container" >
         <header class="session__header">
             <h1><img src="../images/long_logo.png" alt="Lesson Lace"></h1>
             <h2>International Collaboration Made Easy</h2>
             <h3>Access projects in classrooms worldwide</h3>
         </header>
         <div class="session__sign_up">
-            <div class="session__login__social">
-                <button class="button button__social button__social-facebook">Sign up with Facebook</button>
-                <button class="button button__social button__social-google">Sign up with Google</button>
+            <div class="session__login__social"  >
+<!--                <button class="button button__social button__social-google"  id="authorize-button" ng-click="alert('here I am')">Authorize with Google Classroom</button>-->
+                <button class="button button__social button__social-google"  id="authorize-button" ng-click='aCtrl.handleAuthClick(event)'>Authorize with Google Classroom</button>
             </div>
+            <pre id="output"></pre>
             <div class="session__login__or">
                 <span>or</span>
             </div>
