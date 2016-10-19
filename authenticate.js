@@ -11,12 +11,12 @@ angular.module('lessonlace')
         .when("/", {
             templateUrl: "/templates/signup.html"
         })
-        .when("/signin", {
-            templateUrl: "/templates/signin.html"
-        })
         .when("/app", {
             templateUrl:
-            "/app.html"
+            "/app.html#/nav"
+        })
+        .when("/signin", {
+            templateUrl: "/templates/signin.html"
         })
         .otherwise({
             redirectTo: 'templates/signup.html'
@@ -54,13 +54,13 @@ function authenticate(){
           // Hide auth UI, then load client library.
 //          authorizeDiv.style.display = 'none';
 //          aCtrl.loadClassroomApi();
-            window.location.href = '/#/app';
+            window.location.href = '/app.html#/nav';
             console.log('no error');
         } else {
           // Show auth UI, allowing the user to initiate authorization by
           // clicking authorize button.
             console.log('error');
-          authorizeDiv.style.display = 'inline';
+            authorizeDiv.style.display = 'inline';
         }
       }
 
