@@ -1,11 +1,21 @@
+
+
 <div ng-controller="infiniteScrollController as users">
     <div infinite-scroll="getMoreData()">
         <div ng-repeat="user in users" class="userContainer">
             <p>
-                Testing to see if this shows up
-                <b>Email:</b> {{getData.name}}  -   
-                <b>Country:</b> {{getData.id}}  -  
+                <ul>
+                    <li ng-repeat="course in aCtrl.courses">
+                        {{course.name}}
+                    </li>
+                </ul>
             </p>
+            
         </div>
+       
     </div>
-</div>
+</div> 
+
+
+
+

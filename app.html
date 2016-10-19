@@ -36,20 +36,18 @@
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="553892757728-cev6cf803s6efjl7rgfsnp5tsrknuram.apps.googleusercontent.com">
         
-        <!--Google Auth-->
-        <script src="https://apis.google.com/js/client.js?onload=checkAuth">
-        </script>
+        
 
         <!--Setup Bootstrap port-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
-
+  
     </script>
     </head>
     <body ng-controller="authenticate as aCtrl">
         
     <!--Navigation-->        
-    <div id="authorize-div">  
+    <div ng-init="aCtrl.checkAuth()" id="authorize-div"> 
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header row">
@@ -78,9 +76,18 @@
         </nav>
     </div>
 <!--End Navigation-->
+        
         <ng-view>
             
         </ng-view>
+        
+        <!--Google Auth-->
+<!--
+        <script ng-src="https://apis.google.com/js/client.js">
+        </script>
+-->
+               
+    
     </body>
 </html>
 
