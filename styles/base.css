@@ -66,4 +66,11 @@ h3{
 	line-height:150%;
 	font-style:italic;
 }
+.navbar-header.row {
+    width: 100%;
+}
+.navbar-brand{
+    padding: 5px 5px;
+}
+
 

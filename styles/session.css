@@ -1,6 +1,20 @@
-.session {
-	background:#5d5d5d
+@-webkit-keyframes backgroundScroll {
+from {background-position: 0 0px;}  
+to {background-position: 0 500px;}  
 }
+
+@keyframes backgroundScroll {
+from {background-position: 0 0px;}  
+to {background-position: 0 500px;}  
+}
+
+/*Vertical Scrolling*/
+#horizontal-scroll { 
+    background: url(/images/scroll_page.png) repeat-y;  
+    -webkit-animation: backgroundScroll 20s linear infinite;
+    animation: backgroundScroll 20s linear infinite;  
+}
+
 .session,.session__background {
 	position:absolute;
 	top:0;

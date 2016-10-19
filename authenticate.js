@@ -1,15 +1,5 @@
-angular.module('lessonlace', ['ngRoute', 'infinite-scroll'])
-    .controller("Signin", Signin)
-    .controller("Signup", Signup)
-    
-   .controller("authenticate", authenticate) .controller("infiniteScrollController", infiniteScrollController)
-    .controller("MainController", MainController)
-    .controller("RedController", RedController)
-    .controller("GreenController", GreenController)
-    .controller("BlueController", BlueController)
-    .factory('userFact', userFactory);
-
-infiniteScrollController.$inject=["userFact"];
+angular.module('lessonlace', ['ngRoute'])
+    .controller("authenticate", authenticate) 
 
 angular.module('lessonlace')
     .config(myRouter);
@@ -24,20 +14,12 @@ angular.module('lessonlace')
         .when("/signin", {
             templateUrl: "/templates/signin.html"
         })
-        .when("/app_content",{
-            templateUrl: "/templates/app_content.html"
-        })
-        .when("/red", {
-            templateUrl : "/templates/red.html"
-        })
-        .when("/green", {
-            templateUrl : "/templates/green.html"
-        })
-        .when("/blue", {
-            templateUrl : "/templates/blue.html"
+        .when("/app", {
+            templateUrl:
+            "/app.html"
         })
         .otherwise({
-            redirectTo: '/templates/signup.html'
+            redirectTo: 'templates/signup.html'
         })
     }
 
@@ -52,7 +34,7 @@ function authenticate(){
        * Check if current user has authorized this application.
        */
       aCtrl.handleAuthClick = function(event) {
-        console.log('here we are!');
+          console.log('here we are!');
         gapi.auth.authorize(
           {
             'client_id': CLIENT_ID,
@@ -70,11 +52,14 @@ function authenticate(){
         var authorizeDiv = document.getElementById('authorize-div');
         if (authResult && !authResult.error) {
           // Hide auth UI, then load client library.
-          authorizeDiv.style.display = 'none';
-          aCtrl.loadClassroomApi();
+//          authorizeDiv.style.display = 'none';
+//          aCtrl.loadClassroomApi();
+            window.location.href = '/#/app';
+            console.log('no error');
         } else {
           // Show auth UI, allowing the user to initiate authorization by
           // clicking authorize button.
+            console.log('error');
           authorizeDiv.style.display = 'inline';
         }
       }
@@ -103,7 +88,7 @@ function authenticate(){
        * no courses are found an appropriate message is printed.
        */
       function listCourses() {
-          console.log('It is hitting listCouses')
+          console.log('It is hitting listCourses')
         var request = gapi.client.classroom.courses.list({
           pageSize: 10
         });
@@ -130,7 +115,7 @@ function authenticate(){
        *
        * @param {string} message Text to be placed in pre element.
        */
-      appendPre = function(message) {
+      var appendPre = function(message) {
           console.log('It is hitting appendPre');
         var pre = document.getElementById('output');
         var textContent = document.createTextNode(message + '\n');
@@ -138,59 +123,8 @@ function authenticate(){
       }
 }
 
-function Signin() {
-    var SigninCtrl = this;
-    SigninCtrl.greeting = 'Welcome to the view!';
- }
 
-function Signup() {
-    var SignupCtrl = this;
-    SignupCtrl.greeting = 'Welcome to the view!';
- }
 
-function MainController() {
-    var mCtrl = this;
-    mCtrl.greeting = 'Welcome to the view!';
- }
 
-function MainController() {
-    var mCtrl = this;
-    mCtrl.greeting = 'Welcome to the view!';
- }
 
-function RedController(){
-    var rCtrl = this;
-    rCtrl.greeting = 'This is the Red Control';
- }
 
- function GreenController(){
-     var gCtrl = this;
-     gCtrl.greeting = 'This is the Green Control';
- }
-
- function BlueController(){
-     var bCtrl = this;
-     bCtrl.greeting = 'This is the Blue Control';
- }
-
-function infiniteScrollController(userFact){
-    var scroll = this;
-    console.log('hello!');
-    
-    scroll.courses = userFact.courses;
-    
-//    scroll.data =  scroll.courses.slice(0, 30);
-//    scroll.getMoreData = function () {
-//    scroll.data =  scroll.courses.slice(0,  scroll.data.length + 30);
-//}
-};
-
-function userFactory($http){
-    console.log("hitting Factory")
-    $http.get('https://prod-day0-classroom.sandbox.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU')
-    .then(function(res, status){
-        console.log("Success:", res);
-    }, function(res, status){
-        console.log("Failure:", status);
-    });
-}
