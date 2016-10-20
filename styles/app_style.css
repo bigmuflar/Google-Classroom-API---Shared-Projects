@@ -67,9 +67,14 @@ h3{
 
 .content {
 	width: 35%;
+    height: 100%;
 	position: relative;
 	z-index: 5;
 	display: inline-block;
 	margin: auto;
     top: 100px;
+}
+
+img{
+    height:25px;
 }

@@ -49,7 +49,7 @@ function authenticate($scope){
        * Check if current user has authorized this application.
        */
       aCtrl.checkAuth = function() {
-          console.log("Calling checkAuth")
+        console.log("Calling checkAuth")
         gapi.auth.authorize(
           {
             'client_id': CLIENT_ID,
@@ -74,11 +74,11 @@ function authenticate($scope){
       aCtrl.handleAuthResult = function(authResult) {
           
           console.log("Calling handleAuthResult")
-        var authorizeDiv = document.getElementById('authorize-div');
-        if (authResult && !authResult.error) {
-          // If Authenticated load client library.
-            console.log('Auth is Working');
-            aCtrl.loadClassroomApi();
+            var authorizeDiv = document.getElementById('authorize-div');
+            if (authResult && !authResult.error) {
+              // If Authenticated load client library.
+                console.log('Auth is Working');
+                aCtrl.loadClassroomApi();
         } else {
           // If user is not authenticated, redirect user to signup page.
             console.log('Not Authenticated');
@@ -92,7 +92,7 @@ function authenticate($scope){
        */
       aCtrl.loadClassroomApi = function() {
         gapi.client.load('classroom', 'v1', aCtrl.listCourses);
-        gapi.client.load('classroom', 'v1', aCtrl.listProfile);  
+//        gapi.client.load('classroom', 'v1', aCtrl.listProfile);  
       }
       
       /**
@@ -124,23 +124,26 @@ function authenticate($scope){
        * Prints Photos - the names of the first 10 courses the user has access to. If
        * no courses are found an appropriate message is printed.
        */
-    aCtrl.listProfile = function() {
-        console.log('It is hitting listProfile')
-        gapi.client.load('classroom', 'v1', function(){
-            var userEmail = gapi.client.classroom.userProfiles.get({
-            userId: 'me'
-        })
-         .execute(function(resp) {
-          aCtrl.courses = resp.userProfiles;
-             console.log('Retrieved profile for:' + resp.displayName);
-             $scope.$apply();
-            })
-        })     
-    }
+//    aCtrl.listProfile = function() {
+//        console.log('It is hitting listProfile')
+//        gapi.client.load('classroom', 'v1', function(){
+//            var userEmail = gapi.client.classroom.userProfiles.get({
+//            userId: 'me'
+//        })
+//         .execute(function(resp) {
+//          aCtrl.courses = resp.userProfiles;
+//             console.log('Retrieved profile for:' + resp.displayName);
+//             $scope.$apply();
+//            })
+//        })     
+//    }
 }
 
 function infiniteScrollController(userFact){
     var scroll = this;
+    if(scroll === false){
+        return true;
+    }
     console.log('Feeding to Inifinite Scroll!');
 
     scroll.getData = userFact.getData;

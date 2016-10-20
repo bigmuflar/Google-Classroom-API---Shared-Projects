@@ -1,6 +1,23 @@
+
+/*Inifinity Loader*/
+.infinity-load{
+    background-image: "../images/infinity.svg";
+}
+
+/*Navigation*/
+ul.nav.navbar-nav.navbar-right {
+    padding-right: 30px;
+}
+.navbar-header.row {
+    width: 100%;
+}
+.navbar-brand{
+    padding: 5px 5px;
+}
+
 .userContainer{
-    width: 300px;
-    height: 110px;
+    width: 330px;
+    height: 100%;
     padding: 25px;
     font-family: roboto;
     margin: 7px;
@@ -9,4 +26,10 @@
 }
 .userContainer p{
     font-size: 12px;
+}
+#image img{
+    width: 25px;
+}
+.course-group.ng-isolate-scope {
+    padding-left: 25px;
 }
