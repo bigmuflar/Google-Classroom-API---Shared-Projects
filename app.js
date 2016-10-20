@@ -42,7 +42,7 @@ function authenticate($scope){
     console.log('Testing Auth');
       var CLIENT_ID = '553892757728-cev6cf803s6efjl7rgfsnp5tsrknuram.apps.googleusercontent.com';
 
-      var SCOPES = ["https://www.googleapis.com/auth/classroom.courses.readonly", "https://www.googleapis.com/auth/classroom.coursework.students","https://www.googleapis.com/auth/classroom.profile.photos","https://www.googleapis.com/auth/classroom.profile.emails"];
+      var SCOPES = ["https://www.googleapis.com/auth/classroom.courses.readonly", "https://www.googleapis.com/auth/classroom.coursework.students", "https://www.googleapis.com/auth/classroom.profile.photos", "https://www.googleapis.com/auth/classroom.profile.emails"];
 
    
 /**
@@ -91,7 +91,7 @@ function authenticate($scope){
        * Load Classroom API client library.
        */
       aCtrl.loadClassroomApi = function() {
-        gapi.client.load('classroom', 'v1', aCtrl.listCourses);
+        gapi.client.load('classroom', 'v1', aCtrl.listCourses)
 //        gapi.client.load('classroom', 'v1', aCtrl.listProfile);  
       }
       
@@ -109,14 +109,17 @@ function authenticate($scope){
        * Prints Courses - the names of the first 10 courses the user has access to. If
        * no courses are found an appropriate message is printed.
        */
-     aCtrl.listCourses = function() {
+      
+    aCtrl.loading = true;
+    aCtrl.listCourses = function() {
         console.log('It is hitting listCourses')
         var request = gapi.client.classroom.courses.list({
           pageSize: 10
-        });
+        })
          request.execute(function(resp) {
-          aCtrl.courses = resp.courses;
-             $scope.$apply();
+            aCtrl.loading = false;
+            aCtrl.courses = resp.courses;
+            $scope.$apply();
       })
      }     
      
@@ -126,11 +129,12 @@ function authenticate($scope){
        */
 //    aCtrl.listProfile = function() {
 //        console.log('It is hitting listProfile')
-//        gapi.client.load('classroom', 'v1', function(){
+//        
+//        var listProfile = gapi.client.load('classroom', 'v1', function(){
 //            var userEmail = gapi.client.classroom.userProfiles.get({
 //            userId: 'me'
 //        })
-//         .execute(function(resp) {
+//        .then(function(resp) {
 //          aCtrl.courses = resp.userProfiles;
 //             console.log('Retrieved profile for:' + resp.displayName);
 //             $scope.$apply();
@@ -139,26 +143,21 @@ function authenticate($scope){
 //    }
 }
 
+
 function infiniteScrollController(userFact){
     var scroll = this;
-    if(scroll === false){
-        return true;
-    }
+    
     console.log('Feeding to Inifinite Scroll!');
 
     scroll.getData = userFact.getData;
-    
-//    scroll.data =  scroll.courses.slice(0, 30);
-//    scroll.getMoreData = function () {
-//    scroll.data =  scroll.courses.slice(0,  scroll.data.length + 30);
-//}
 };
 
 function userFactory($http){
     console.log("hitting Factory");
     return{
        getData: function(){
-            return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU", "https://classroom.googleapis.com/v1/userProfiles/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU")
+           return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU");
+//           return $http.get( "https://classroom.googleapis.com/v1/userProfiles/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU")
         }
     }
 };

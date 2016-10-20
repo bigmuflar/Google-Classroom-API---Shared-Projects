@@ -14,7 +14,7 @@
               </a>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#/nav/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <a href="#/nav/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mr. Degonda <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#/nav/#">Action</a></li>
                     <li><a href="#/nav/#">Another action</a></li>
@@ -33,14 +33,19 @@
 
 
 <!--APP-->
-<div ng-controller="infiniteScrollController as users">
+<div ng-controller="infiniteScrollController as users" id="content">
     <!--Loading svg-->
-<img ng-src="../images/infinity.gif" ng-show="scroll(userFact)" />
+<img ng-src="../images/infinity.gif" ng-show="aCtrl.loading" />
     <div infinite-scroll="getMoreData()" infinite-scroll-distance='2' class="course-group">
         <div ng-repeat="course in aCtrl.courses" class="userContainer">
             <div id="course-data">
                 <div id="course-name">
                     {{course.name}}
+                </div>
+                <div id="description">
+                </div>
+                <div id="teacher-group"> 
+                    <a href="mailto:{{course.teacherGroupEmail}}">Email to Collaborate</a>
                 </div>
                 <div id="image">
 

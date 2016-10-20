@@ -1,7 +1,14 @@
+/*content container*/
+#content{
+    position: absolute;
+}
 
 /*Inifinity Loader*/
 .infinity-load{
     background-image: "../images/infinity.svg";
+    display:block;
+    margin: 0 auto;
+    position:relative;
 }
 
 /*Navigation*/

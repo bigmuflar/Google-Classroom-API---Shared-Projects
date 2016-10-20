@@ -24,10 +24,10 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 a{
-    color:white;
+
 }
 a:hover{
-    color:white;
+    color:purple;
 }
 ol, ul, li {
 	list-style: none;
@@ -66,11 +66,10 @@ h3{
 	line-height:150%;
 	font-style:italic;
 }
-.navbar-header.row {
-    width: 100%;
+.navbar-form {
+    padding: 10px 15px !important;
 }
-.navbar-brand{
-    padding: 5px 5px;
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
 }
-
 
