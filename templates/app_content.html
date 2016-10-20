@@ -1,14 +1,14 @@
 
 
 <div ng-controller="infiniteScrollController as users">
-    <div infinite-scroll="getMoreData()">
-        <div ng-repeat="user in users" class="userContainer">
+    <div infinite-scroll="getMoreData()" infinite-scroll-distance='2'>
+        <div ng-repeat="course in aCtrl.courses" class="userContainer">
             <p>
                 <ul>
-                    <li ng-repeat="course in aCtrl.courses">
+                    <li>
                         {{course.name}}
                     </li>
-                </ul>
+                </ul>   
             </p>
             
         </div>

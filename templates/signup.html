@@ -1,52 +1,53 @@
+<div id="horizontal-scroll" >
+    <div class="session" ng-controller="authenticate as aCtrl" >
+        <div class="session__container" >
+            <header class="session__header">
+                <h1><img src="../images/long_logo.png" alt="Lesson Lace"></h1>
+                <h2>International Collaboration Made Easy</h2>
+                <h3>Access projects in classrooms worldwide</h3>
+            </header>
+            <div class="session__sign_up">
+                <div class="session__login__social" id="authorize-div" >
+    <!--                <button class="button button__social button__social-google"  id="authorize-button" ng-click="alert('here I am')">Authorize with Google Classroom</button>-->
+                    <button class="button button__social button__social-google"  id="authorize-button" ng-click='aCtrl.handleAuthClick(event)'>Authorize with Google Classroom</button>
+                </div>
+                <pre id="output"></pre>
+                <div class="session__login__or">
+                    <span>or</span>
+                </div>
 
-<div class="session" ng-controller="authenticate as aCtrl" >
-    <div class="session__container" >
-        <header class="session__header">
-            <h1><img src="../images/long_logo.png" alt="Lesson Lace"></h1>
-            <h2>International Collaboration Made Easy</h2>
-            <h3>Access projects in classrooms worldwide</h3>
-        </header>
-        <div class="session__sign_up">
-            <div class="session__login__social" id="authorize-div" >
-<!--                <button class="button button__social button__social-google"  id="authorize-button" ng-click="alert('here I am')">Authorize with Google Classroom</button>-->
-                <button class="button button__social button__social-google"  id="authorize-button" ng-click='aCtrl.handleAuthClick(event)'>Authorize with Google Classroom</button>
+                <form name="form" ng-submit="$ctrl.submit(form)" novalidate="">
+                    <div class="session__field">
+                        <input name="email" type="email" placeholder="Email" autofocus="autofocus"
+                            ng-model="$ctrl.user.email"
+                            required>
+                    </div>
+
+                    <div class="session__field">
+                        <input name="password" type="password" placeholder="Password" autocomplete="off"
+                            ng-model="$ctrl.user.password"
+                            required
+                            ng-minlength="8">
+                    </div>
+
+                    <div class="session__actions">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                </form>
+
+                <p class="session__tos">
+                    Creating an account means you accept Lesson Lace’s
+                    <br>
+                    <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="#/signin">LOG IN</a>
+                </p>
             </div>
-            <pre id="output"></pre>
-            <div class="session__login__or">
-                <span>or</span>
-            </div>
-
-            <form name="form" ng-submit="$ctrl.submit(form)" novalidate="">
-                <div class="session__field">
-                    <input name="email" type="email" placeholder="Email" autofocus="autofocus"
-                        ng-model="$ctrl.user.email"
-                        required>
-                </div>
-
-                <div class="session__field">
-                    <input name="password" type="password" placeholder="Password" autocomplete="off"
-                        ng-model="$ctrl.user.password"
-                        required
-                        ng-minlength="8">
-                </div>
-
-                <div class="session__actions">
-                    <input type="submit" value="Sign Up">
-                </div>
-            </form>
-
-            <p class="session__tos">
-                Creating an account means you accept Lesson Lace’s
-                <br>
-                <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>
-                <br>
-                <br>
-                <br>
-                <a href="#/signin">LOG IN</a>
-            </p>
         </div>
-    </div>
-    <div class="sellbar">
-        <img src="../images/sell_bar.png">
+        <div class="sellbar">
+            <img src="../images/sell_bar.png">
+        </div>
     </div>
 </div>

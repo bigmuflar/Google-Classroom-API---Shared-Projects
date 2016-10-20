@@ -92,7 +92,7 @@ function authenticate($scope){
        */
       aCtrl.loadClassroomApi = function() {
         gapi.client.load('classroom', 'v1', aCtrl.listCourses);
-        gapi.client.load('classroom', 'v1', aCtrl.listPhotos);  
+        gapi.client.load('classroom', 'v1', aCtrl.listProfile);  
       }
       
       /**
@@ -106,7 +106,7 @@ function authenticate($scope){
       }
     
       /**
-       * Print the names of the first 10 courses the user has access to. If
+       * Prints Courses - the names of the first 10 courses the user has access to. If
        * no courses are found an appropriate message is printed.
        */
      aCtrl.listCourses = function() {
@@ -117,17 +117,32 @@ function authenticate($scope){
          request.execute(function(resp) {
           aCtrl.courses = resp.courses;
              $scope.$apply();
-
       })
-     }
+     }     
      
-     
+      /**
+       * Prints Photos - the names of the first 10 courses the user has access to. If
+       * no courses are found an appropriate message is printed.
+       */
+    aCtrl.listProfile = function() {
+        console.log('It is hitting listProfile')
+        gapi.client.load('classroom', 'v1', function(){
+            var userEmail = gapi.client.classroom.userProfiles.get({
+            userId: 'me'
+        })
+         .execute(function(resp) {
+          aCtrl.courses = resp.userProfiles;
+             console.log('Retrieved profile for:' + resp.displayName);
+             $scope.$apply();
+            })
+        })     
+    }
 }
 
 function infiniteScrollController(userFact){
     var scroll = this;
     console.log('Feeding to Inifinite Scroll!');
-    
+
     scroll.getData = userFact.getData;
     
 //    scroll.data =  scroll.courses.slice(0, 30);
@@ -140,10 +155,9 @@ function userFactory($http){
     console.log("hitting Factory");
     return{
        getData: function(){
-            return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU")
+            return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU", "https://classroom.googleapis.com/v1/userProfiles/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU")
         }
     }
 };
-
 
 
