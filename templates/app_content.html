@@ -6,7 +6,7 @@
             <div class="navbar-header row">
                 <form class="navbar-form navbar-left col-xs-2">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Search">
+                      <input type="text" class="form-control" placeholder="Search a Topic" ng-model="userSearch">
                     </div>
               </form>
               <a class="navbar-brand col-xs-7" href="#">
@@ -35,9 +35,9 @@
 <!--APP-->
 <div ng-controller="infiniteScrollController as users" id="content">
     <!--Loading svg-->
-<img ng-src="../images/infinity.gif" ng-show="aCtrl.loading" />
+<img id="load" ng-src="../images/skull.gif" ng-show="aCtrl.loading" />
     <div infinite-scroll="getMoreData()" infinite-scroll-distance='2' class="course-group">
-        <div ng-repeat="course in aCtrl.courses" class="userContainer">
+        <div ng-repeat="course in aCtrl.courses | filter:userSearch" class="userContainer">
             <div id="course-data">
                 <div id="course-name">
                     {{course.name}}
@@ -55,7 +55,5 @@
         </div>
     </div>
 </div> 
-
-
 
 

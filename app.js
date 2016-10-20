@@ -38,26 +38,20 @@ angular.module('lessonlace')
 *Used with Handle AuthClick to verify user session **/
 function authenticate($scope){
     var aCtrl = this;
-    window.aCtrl = aCtrl;
-    console.log('Testing Auth');
       var CLIENT_ID = '553892757728-cev6cf803s6efjl7rgfsnp5tsrknuram.apps.googleusercontent.com';
-
       var SCOPES = ["https://www.googleapis.com/auth/classroom.courses.readonly", "https://www.googleapis.com/auth/classroom.coursework.students", "https://www.googleapis.com/auth/classroom.profile.photos", "https://www.googleapis.com/auth/classroom.profile.emails"];
 
    
-/**
+    /**
        * Check if current user has authorized this application.
        */
       aCtrl.checkAuth = function() {
-        console.log("Calling checkAuth")
         gapi.auth.authorize(
           {
             'client_id': CLIENT_ID,
             'scope': SCOPES.join(' '),
             'immediate': true
           }, aCtrl.handleAuthResult);
-          
-          console.log("Called checkAuth")
       }
 
       /**
@@ -72,16 +66,12 @@ function authenticate($scope){
        * @param {Object} authResult Authorization result.
        */
       aCtrl.handleAuthResult = function(authResult) {
-          
-          console.log("Calling handleAuthResult")
             var authorizeDiv = document.getElementById('authorize-div');
             if (authResult && !authResult.error) {
               // If Authenticated load client library.
-                console.log('Auth is Working');
                 aCtrl.loadClassroomApi();
         } else {
           // If user is not authenticated, redirect user to signup page.
-            console.log('Not Authenticated');
             authorizeDiv.style.display = 'none';
             window.location.href = '/#';
         }
@@ -112,7 +102,6 @@ function authenticate($scope){
       
     aCtrl.loading = true;
     aCtrl.listCourses = function() {
-        console.log('It is hitting listCourses')
         var request = gapi.client.classroom.courses.list({
           pageSize: 10
         })
@@ -146,14 +135,10 @@ function authenticate($scope){
 
 function infiniteScrollController(userFact){
     var scroll = this;
-    
-    console.log('Feeding to Inifinite Scroll!');
-
     scroll.getData = userFact.getData;
 };
 
 function userFactory($http){
-    console.log("hitting Factory");
     return{
        getData: function(){
            return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU");
