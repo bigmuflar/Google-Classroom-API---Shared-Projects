@@ -68,8 +68,13 @@ h3{
 }
 .navbar-form {
     padding: 10px 15px !important;
+    border-top: 0 solid transparent !important;
+    border-bottom: 0 solid transparent !important;
+    width: auto;
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #e7e7e7;
 }
-
+.nav-bar-brand img{
+    margin-left: 100px;
+}

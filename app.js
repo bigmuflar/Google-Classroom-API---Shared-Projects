@@ -38,11 +38,11 @@ angular.module('lessonlace')
 *Used with Handle AuthClick to verify user session **/
 function authenticate($scope){
     var aCtrl = this;
-      var CLIENT_ID = 'Insert Key';
+      var CLIENT_ID = '553892757728-cev6cf803s6efjl7rgfsnp5tsrknuram.apps.googleusercontent.com';
       var SCOPES = ["https://www.googleapis.com/auth/classroom.courses.readonly", "https://www.googleapis.com/auth/classroom.coursework.students", "https://www.googleapis.com/auth/classroom.profile.photos", "https://www.googleapis.com/auth/classroom.profile.emails"];
 
    
-    /**
+/**
        * Check if current user has authorized this application.
        */
       aCtrl.checkAuth = function() {
@@ -141,7 +141,7 @@ function infiniteScrollController(userFact){
 function userFactory($http){
     return{
        getData: function(){
-           return $http.get("https://classroom.googleapis.com/v1/courses/Insert Key");
+           return $http.get("https://classroom.googleapis.com/v1/courses/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU");
 //           return $http.get( "https://classroom.googleapis.com/v1/userProfiles/?key=AIzaSyCXHTtrF9QPuxU7IV22G8THnP7k9-AoUJU")
         }
     }
